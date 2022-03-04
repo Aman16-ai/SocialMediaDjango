@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/signuppage.css">
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@600&family=Heebo:wght@300;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="left-container">
+            <h2>Welcome Back!</h2>
+            <p>To keep connected with us please login with your personal info</p>
+            <button id="login-btn">LOGIN</button>
+        </div>
+        <div class="right-container">
+            <h1>Create Account</h1>
+            <div class="credentials-fields">
+                <form action="HandleSignup/" style="display: flex; flex-direction:row" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="ProfileImg" id="profile">
+
+                    <div class="upper">
+                        <input type="text" name="Username" id="username_in" placeholder="username">
+                        <div class="fields">
+                            <input type="text" name="Firstname" id="fname_in" placeholder="First Name">
+                            <input type="text" placeholder="Last Name" name="Lastname" id="lname_in">
+                        </div>
+                        <input type="email" name="email" id="email_in" placeholder="example@gmail.com">
+                        <input type="date" name="Age" id="dob_in">
+                        <div class="fields">
+                            <select name="Country" id="country_in">
+                                <option value="null">Country</option>
+                                <option value="india">India</option>
+                                <option value="isreal">Isreal</option>
+                                <option value="usa">United states of America</option>
+                                <option value="uk">united kingdom</option>
+                                <option value="france">France</option>
+                                <option value="uae">UAE</option>
+                            </select>
+                            <select name="Language" id="language_in">
+                                <option value="none">Language</option>
+                                <option value="hindi">Hindi</option>
+                                <option value="english">English</option>
+                                <option value="telgu">Telgu</option>
+                                <option value="marathi">Marathi</option>
+                            </select>
+                        </div>
+                        <input type="password" name="pass" id="pass_in" placeholder="password">
+                        <button type="submit">Sign up</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

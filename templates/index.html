@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block title %}Home page{% endblock title %}
+{% block css %}
+    <style>
+        .user-info img {
+            width: 3vw;
+            height: 8vh;
+            border: 2px solid black;
+            border-radius: 2rem;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .post-card {
+            width: 45vw;
+            box-shadow: 0px 0px 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 1rem;
+        
+        }
+        .user-info {
+            display: flex;
+        }
+        #username-para {
+            color: black;
+            font-size: larger;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        #post-date-para {
+            width: 7vw;
+            padding: 0.2rem;
+            font-size: small;
+            color: white;
+            font-weight: bold;
+            background-color: #6c757d;
+            border-radius: 0.3rem;
+            text-align: center;
+          
+        }
+        #caption-para {
+            margin-left: 10px;
+        }
+        #post-img {
+            width: 45vw;
+            height: 40vh;
+            object-fit: scale-down;
+        }
+        .action-buttons {
+            margin-bottom: 30px;
+            display: flex;
+            height: 7vh;
+            border-top: 2px solid #6c757d;
+            border-bottom: 2px solid #6c757d;
+            justify-content: space-around;
+        }
+        .action-buttons button {
+            width: 9vw;
+            height: 5vh;
+            align-self: center;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            font-size: 1rem;
+        }
+        #like-post:hover {
+            color: white;
+            background-color:#6c757d;
+        }
+        #comment-post:hover {
+            color: white;
+            background-color: #6c757d;
+        }
+        #share-post:hover {
+            color:white;
+            background-color: #6c757d;
+        }
+        #like-count-para {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            margin-left: 10px;
+        }
+        #comment-count-para {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            margin-left: 10px;
+        }
+        .action-count-container {
+            display: flex;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .posts-container {
+            display:grid;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+    
+            
+        }
+        .posts-container .post-card {
+            margin-top: 20px;
+        }
+        
+        button a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+{% endblock css %}
+{% block body %}
+    {% if user.is_authenticated %}
+
+        <div class="container">
+            <div class="posts-container">
+                <h1 style="margin-top: 20px; text-align:center">Your Posts</h1>
+                {% for p in allposts %}
+                
+                <div class="post-card">
+                    <div class="user-info">
+                        <img src="/media/{{p.user_post.profile_img}}" alt="">
+                        <div class="user-info-side">
+                            <h5 id="username-para">{{p.user_post.userauth.first_name}} {{p.user_post.userauth.last_name}}</h5>
+                            <p id="post-date-para">{{p.post_date}}</p>
+                        </div>
+                    </div>
+                    <p id="caption-para">{{p.caption}}</p>
+                    <img src="/media/{{p.post_img}}" alt="image" id="post-img">
+                    <div class="action-count-container">
+                        <p id="like-count-para">{{p.likes_count}} Likes</p>
+                    <p id="comment-count-para">30 comments</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="like-post"><i class="far fa-heart"></i><a href="{% url 'handlelike' p.id %}">Like</a></button>
+                        <button id="comment-post"><i class="far fa-comment"></i>Comment</button>
+                        <button id="share-post"> <i class="far fa-share-square"></i>Share</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+    {% endif %}
+    
+
+{% endblock body %}

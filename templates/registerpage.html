@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block css %} <link rel="stylesheet" href="/static/registerpagestyle.css"> {% endblock css %}
+{% block body %}
+<form action="HandleSignup/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="mb-3">
+        <label for="name_in" class="form-label">Username</label>
+        <input type="text" class="form-control" id="name_in" name="Username">
+    </div>
+    <div class="mb-3">
+      <div class="profile-img-container">
+        <img src="/static/userimg.png" alt="your profile" id="profile-img-preview">
+        <!-- <label for="profile_in" class="form-label">Profile Image</label> -->
+      <input type="file" class="form-control" id="profile_in" name="ProfileImg">
+      </div>
+      <button id="preview-img" class="btn btn-success">Preview</button>
+  </div>
+    <div class="mb-3">
+        <label for="fname_in" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname_in" name="Firstname">
+    </div>
+    <div class="mb-3">
+        <label for="lname_in" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname_in" name="Lastname">
+    </div>
+    <div class="mb-3">
+        <label for="age_in" class="form-label">Date of birth</label>
+        <input type="date" name="Age" id="age_in" class="form-control">
+    </div>
+    <select name="Country" class="form-select" aria-label="Default select example">
+      <option selected>Choose your Country</option>
+      <option value="india">India</option>
+      <option value="usa">United States of America</option>
+      <option value="isreal">Isreal</option>
+    </select>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Language</label>
+        <input type="text" class="form-control" id="Language_in" name="Language">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1"
+      name="pass"
+      >
+    </div>
+    {% csrf_token %} 
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+</div>
+{% endblock body %}
+{% block javascriptBlock %}
+  <script>
+    document.getElementById('preview-img').addEventListener('click',(e)=> {
+      e.preventDefault();
+      let img = document.getElementById('profile_in').value;
+      console.log(img)
+      document.getElementById('profile-img-preview').src = img
+    })
+  </script>
+{% endblock javascriptBlock %}
+

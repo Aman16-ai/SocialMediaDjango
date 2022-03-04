@@ -1,0 +1,154 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: #F0F4F3;
+    
+}
+.main-container {
+    width: 80vw;
+    height: 80vh;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px;
+}
+
+.left-container {
+    width: 35%;
+    height: 100%;
+    background-color: #3AB694;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.left-container h2 {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: bolder;
+    align-self: center;
+    font-family: 'Cabin', sans-serif;
+}
+.left-container p {
+    margin-left: 35px;
+    margin-right: 20px;
+    color: white;
+    align-self: center;
+    margin-top: 5px;
+    word-wrap:break-word;
+    font-family: 'Heebo', sans-serif;
+}
+.left-container button {
+   width: 175px;
+   height: 50px;
+   align-self: center;
+   margin-top: 50px;
+   background-color: transparent;
+   border: 2px solid white;
+   color: white;
+    border-radius: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+.right-container {
+    width: 65%;
+    height: 100%;
+   background-color: white;
+   display: flex;
+   flex-direction: column;
+}
+.right-container h1 {
+    color: #3AB694;
+    font-size: 2.4rem;
+    font-weight: bolder;
+    align-self: center;
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.credentials-fields {
+    display: flex;
+    margin-top: 20px;
+}
+.upper {
+    display: flex;
+    flex-direction: column;
+}
+.fields {
+    display: flex;
+}
+.credentials-fields img {
+    width: 8vw;
+    height: 20vh;
+    border: 2px solid #3AB694;
+    border-radius: 5rem;
+    margin-right: 10px;
+    margin-left: 50px;
+}
+.upper .fields input {
+    width: 15vw;
+    height: 2vh;
+    align-self: center;
+    margin: 2px;
+    margin-top: 10px;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px;
+}
+.upper input {
+    width: 95%;
+    height: 2vh;
+    align-self: center;
+    margin: 2px;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+.fields label {
+    align-self: center;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.upper .fields select {
+    width: 100%;
+    height: 5.6vh;
+    align-self: center;
+    margin: 2px;
+    margin-top: 10px;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px;
+}
+.upper button {
+    width: 15vw;
+    height: 7vh;
+    align-self: center;
+    margin-top: 25px;
+    background-color: #3AB694;
+    color: white;
+    border: none;
+    border-radius: 4rem;
+    font-family: 'Roboto',sans-serif;
+    font-size: larger;
+}
+#profile {
+    width: 8vw;
+    height: 20vh;
+    border: 2px solid #3AB694;
+    border-radius: 5rem;
+    margin-right: 10px;
+    margin-left: 50px;
+    text-decoration: none;
+    background-image: url("../static/userimg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container">
+        <form action="Handlelogin/" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Username" name="username">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Username</label>
+                <input name="pass" type="password" class="form-control" id="exampleFormControlTextarea1">
+              </div>
+              <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+    </div>
+{% endblock body %}
