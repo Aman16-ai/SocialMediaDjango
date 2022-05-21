@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT SocialMediaDjango.wsgi:application
+web: gunicorn crm1.wsgi --log-file -
